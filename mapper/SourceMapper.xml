@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.market.dao.SourceDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.market.entity.MarketSourceEntity">
+        <id column="gs_id" property="gsId" />
+        <result column="gs_name" property="gsName" />
+        <result column="gs_main_url" property="gsMainUrl" />
+        <result column="gs_desc" property="gsDesc" />
+        <result column="gs_state" property="gsState" />
+        <result column="gs_created" property="gsCreated" />
+        <result column="gs_updated" property="gsUpdated" />
+    </resultMap>
+
+</mapper>

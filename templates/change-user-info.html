@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>修改个人信息</title>
+    <script type="text/javascript">
+        // var flag1=false,
+        var flag2=false,flag3=false;
+        // function chang1(obj){
+        //     var name=obj.value;
+        //     if(name.length!=11){
+        //         alert("用户名(手机号)长度应为11位！");
+        //         document.getElementById("usName").innerHTML="<font color='red'> 用户名(手机号)长度应为11位！</font>";
+        //     }
+        //     // else if(!reg.test(name)){
+        //     //     //alert("用户名由字母开头，后字母、数字或下划线!");
+        //     //     document.getElementById("usName").innerHTML="<font color='red'> 用户名由字母开头，后字母、数字或下划线</font>";
+        //     //     flag1=false;
+        //     // }
+        //     else{
+        //         flag1=true;
+        //         // document.getElementById("usName").innerHTML="<font color='green'>可以使用</font>";
+        //     }
+        // }
+        function chang2(obj){
+            var pwd=obj.value;
+            if(pwd.length<6||pwd.length>16){
+                alert("密码要求6-16位！");
+                flag2=false;
+                // document.getElementById("ps1").innerHTML="<font color='red'>密码要求6-16位！</font>";
+            }
+            else{
+                flag2=true;
+                // document.getElementById("ps1").innerHTML="<font color='green'>可以使用</font>";
+            }
+        }
+        function chang3(obj){
+            var pwd1=obj.value;
+            var pwd=document.CUI.password.value;
+            if(pwd1.length<6||pwd1.length>16){
+                alert("密码要求6-16位！");
+                // document.getElementById("ps2").innerHTML="<font color='red'>密码要求6-16位！</font>";
+            }
+            else if(pwd!=pwd1){
+                alert("两次输入密码不一致！");
+                flag3=false;
+                // document.getElementById("ps2").innerHTML="<font color='red'>两次输入密码不一致！</font>";
+            }
+            else{
+                flag3=true;
+                // document.getElementById("ps2").innerHTML="<font color='green'>可以使用</font>";
+            }
+        }
+        function sub(){
+            // if(!flag1){
+            //     alert("用户名长度不符合要求!")
+            //     return false;
+            // }else
+            var pwd1=document.CUI.userPassword_confirm.value;
+            var pwd=document.CUI.password.value;
+            if(pwd==pwd1){
+                flag3=true;
+            }
+            if(!flag2){
+                alert("密码长度不符合要求!");
+                return false;
+            }else if(!flag3){
+                alert("两次密码输入不一致!");
+                return false;
+            }else if(flag2&&flag3){
+                alert("修改成功!");
+                return true;
+            }
+        }
+        function res(){
+            document.CUI.userPhone.value="";
+            document.CUI.password.value="";
+            document.CUI.userPassword_confirm="";
+            document.CUI.userNickname.value="";
+            document.CUI.userEmail.value="";
+            document.CUI.userSex.value="";
+            document.CUI.userBirth.value="";
+            // document.getElementById("usName").innerHTML="";
+            // document.getElementById("ps1").innerHTML="";
+            // document.getElementById("ps2").innerHTML="";
+        }
+    </script>
+    <!-- CSS -->
+    <!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">-->
+    <link rel="stylesheet" href="/static/loginassets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/loginassets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/loginassets/css/form-elements.css">
+    <link rel="stylesheet" href="/static/loginassets/css/style.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicon and touch icons -->
+    <!--<link rel="shortcut icon" href="loginassets/ico/favicon.png">-->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/loginassets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/loginassets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/loginassets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/loginassets/ico/apple-touch-icon-57-precomposed.png">
+    <style type="text/css">
+        a:hover {
+            text-decoration: underline; /*指鼠标在链接*/
+        }
+    </style>
+</head>
+
+<body>
+<!-- Top content -->
+<form role="form" method="post" action="/user/changeUserInfo/">
+    <div class="top-content">
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 text">
+                        <h1><strong>比价网</strong> 用户信息修改</h1>
+                        <div class="description">
+                            <p>
+                                在此修改您的个人信息：
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>Modify your personal information:</h3>
+                                <p>请修改您的个人信息:</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            <form role="form" action="/user/changeUserInfo" method="post"
+                                  class="login-form" name="CUI">
+                                <!--<div class="form-group">-->
+                                    <!--<label for="form_stype">您的身份为：</label>-->
+                                    <!--<select class="form-control" id="form_stype"-->
+                                            <!--th:value="${entity.userType}"-->
+                                            <!--name="RegisterType">-->
+                                        <!--<option value="000001">普通用户</option>-->
+                                        <!--<option value="000000">管理员</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                                <div class="form-group">
+                                    <label class="sr-only" for="userPhoneUpdate">用户名</label>
+                                    <input type="text" name="userPhone"
+                                           placeholder="用户名(手机号)"
+                                           class="form-username form-control"
+                                           readonly="readonly"
+                                           th:field="${entity.userPhone}"
+                                           id="userPhoneUpdate">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="userNicknameUpdate">昵称</label>
+                                    <input type="text" name="userNickname"
+                                           placeholder="昵称" id="userNicknameUpdate"
+                                           class="form-username form-control"
+                                           th:field="${entity.userNickname}">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="userEmailUpdate">邮箱</label>
+                                    <input type="email" class="form-username form-control"
+                                           id="userEmailUpdate" placeholder="邮箱"
+                                           th:field="${entity.userEmail}"
+                                           name="userEmail">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="userSexUpdate">性别</label>
+                                    <select class="form-control form-username"
+                                            th:checked="${entity.userSex}"
+                                            id="userSexUpdate" name="userSex">
+                                        <option>男</option>
+                                        <option>女</option>
+                                        <option>保密</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userBirthdayUpdate">出生日期</label>
+                                    <input type="date" class="form-control"
+                                           th:value="${#dates.format(entity.userBirth,'yyyy-MM-dd')}"
+                                           id="userBirthdayUpdate" name="userBirth">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="password">新密码</label>
+                                    <input type="password" name="userPassword" placeholder="新密码"
+                                           class="form-password form-control" id="password"
+                                           onchange="chang2(this)">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="userPassword_confirm">确认密码</label>
+                                    <input type="password" name="userPassword_confirm" placeholder="确认密码"
+                                           class="form-password form-control" id="userPassword_confirm"
+                                           onchange="chang3(this)">
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <button type="submit" onclick='return sub()'
+                                            class="btn form-control">确认更改</button>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <button type="reset" class="btn form-control" onclick="res()">重置信息</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+<!--<script>-->
+    <!--$(document).ready(function () {-->
+        <!--$.ajax(-->
+            <!--{-->
+                <!--type: "POST",-->
+                <!--url: "/user/getUserById",-->
+                <!--data: {"id": id},-->
+                <!--dataType: "json",-->
+                <!--//解决编码问题-->
+                <!--scriptCharset: 'utf-8',-->
+                <!--beforeSend: function () {-->
+                    <!--return true;-->
+                <!--},-->
+                <!--success: function (data) {-->
+                    <!--if (data) {-->
+                        <!--//赋值-->
+                        <!--$('#userPhoneUpdate').val(data.userPhone);-->
+                        <!--$('#userNicknameUpdate').val(data.userNickname);-->
+                        <!--$('#userEmailUpdate').val(data.userEmail);-->
+                        <!--$('#userSexUpdate').val(data.userSex);-->
+                        <!--$('#userPasswordUpdate').val(data.userPassword);-->
+                        <!--$('#userBirthdayUpdate').val(data.userBirth);-->
+                        <!--//在修改用户信息时，username不可修改-->
+                        <!--$('#userPhoneUpdate').attr("readonly", "readonly");-->
+                    <!--}-->
+                <!--}-->
+            <!--});-->
+    <!--})-->
+
+
+<!--</script>-->
+<!--<div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>-->
+<!-- Javascript -->
+<script src="/static/loginassets/js/jquery-1.11.1.min.js"></script>
+<script src="/static/loginassets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/loginassets/js/jquery.backstretch.min.js"></script>
+<script src="/static/loginassets/js/scripts.js"></script>
+
+<!--[if lt IE 10]>
+<script src="../static/static/loginassets/js/placeholder.js"></script>
+<![endif]-->
+<!--${entity.userId}-->
+</body>
+
+</html>
+</head>
+<body>
+
+</body>
+</html>

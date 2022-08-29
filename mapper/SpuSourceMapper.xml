@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.market.dao.SpuSourceDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.market.entity.SpuSourceEntity">
+        <id column="gss_id" property="gssId"/>
+        <result column="gss_spu_id" property="gssSpuId"/>
+        <result column="gss_name" property="gssName"/>
+        <result column="gss_img_url" property="gssImgUrl"/>
+        <result column="gss_dest_url" property="gssDestUrl"/>
+        <result column="gss_full_price" property="gssFullPrice"/>
+        <result column="gss_current_price" property="gssCurrentPrice"/>
+        <result column="gss_ttm" property="gssTtm"/>
+        <result column="gss_view" property="gssView"/>
+        <result column="gss_comment" property="gssComment"/>
+        <result column="gss_state" property="gssState"/>
+        <result column="gss_created" property="gssCreated"/>
+        <result column="gss_updated" property="gssUpdated"/>
+        <result column="gss_spu_name" property="gssSpuName"/>
+        <result column="gss_spu_desc" property="gssSpuDesc"/>
+        <result column="gss_spu_category" property="gssSpuCategory"/>
+        <result column="gss_spu_brand" property="gssSpuBrand"/>
+        <result column="gss_spu_category_id" property="gssSpuCategoryId"/>
+        <result column="gss_spu_brand_id" property="gssSpuBrandId"/>
+
+    </resultMap>
+    <select id="selectByKeys" resultType="com.market.entity.SpuSourceEntity"
+            parameterType="com.market.entity.SpuSourceEntity">
+        select
+        gss_id,gss_spu_id,gss_name,gss_img_url,gss_dest_url,gss_full_price,gss_current_price,gss_ttm,gss_view,gss_comment,gss_state,
+        gss_spu_name,gss_spu_desc,gss_spu_category,gss_spu_brand,gss_spu_category_id,gss_spu_brand_id from
+        bis_goods_spu_source
+        where 1=1
+        <if test="scope ==1 or scope==2">
+            and gss_spu_category_id=#{scope}
+        </if>
+        and
+        <foreach collection="strings" item="str" index="index" open="( 1=0 " close=")">
+            or gss_spu_name like CONCAT('%',#{str},'%')
+        </foreach>
+        order by gss_current_price
+    </select>
+
+</mapper>

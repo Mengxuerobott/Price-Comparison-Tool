@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.market.dao.SpuDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.market.entity.SpuEntity">
+        <id column="spu_id" property="spuId" />
+        <result column="spu_title" property="spuTitle" />
+        <result column="spu_subtitle" property="spuSubtitle" />
+        <result column="spu_catetory_id" property="spuCatetoryId" />
+        <result column="spu_brand_id" property="spuBrandId" />
+        <result column="spu_desc" property="spuDesc" />
+        <result column="spu_state" property="spuState" />
+        <result column="spu_created" property="spuCreated" />
+        <result column="spu_updated" property="spuUpdated" />
+    </resultMap>
+
+</mapper>

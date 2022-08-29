@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注册账号</title>
+    <script type="text/javascript">
+        var flag1 = false, flag2 = false, flag3 = false;
+
+        function chang1(obj) {
+            var name = obj.value;
+            if (name.length != 11) {
+                alert("用户名(手机号)长度应为11位！");
+                // document.getElementById("usName").innerHTML="<font color='red'> 用户名(手机号)要求11位！</font>";
+            }
+            else {
+                flag1 = true;
+                // document.getElementById("usName").innerHTML="<font color='green'>可以使用</font>";
+            }
+        }
+
+        function chang2(obj) {
+            var pwd = obj.value;
+            if (pwd.length < 6 || pwd.length > 16) {
+                alert("密码要求6-16位！");
+                flag2 = false;
+                // document.getElementById("ps1").innerHTML="<font color='red'>密码要求6-16位！</font>";
+            }
+            else {
+                flag2 = true;
+                // document.getElementById("ps1").innerHTML="<font color='green'>可以使用</font>";
+            }
+        }
+
+        function chang3(obj) {
+            var pwd1 = obj.value;
+            var pwd = document.register.password.value;
+            if (pwd1.length < 6 || pwd1.length > 16) {
+                alert("密码要求6-16位！");
+                // document.getElementById("ps2").innerHTML="<font color='red'>密码要求6-16位！</font>";
+            }
+            else if (pwd != pwd1) {
+                alert("两次输入密码不一致！");
+                flag3 = false;
+                // document.getElementById("ps2").innerHTML="<font color='red'>两次输入密码不一致！</font>";
+            }
+            else {
+                flag3 = true;
+                // document.getElementById("ps2").innerHTML="<font color='green'>可以使用</font>";
+            }
+        }
+
+        function sub() {
+            if (!flag1) {
+                alert("用户名长度不符合要求!");
+                return false;
+            } else if (!flag2) {
+                alert("密码长度不符合要求!");
+                return false;
+            } else if (!flag3) {
+                alert("两次密码输入不一致!");
+                return false;
+            } else if (flag3 && flag2 && flag1) {
+                alert("注册成功!");
+                return true;
+                // document.register.submit();
+            }
+        }
+
+        function res() {
+            document.register.userPhone.value = "";
+            document.register.password.value = "";
+            document.register.userPassword_confirm = "";
+            document.register.userNickname.value = "";
+            document.register.userEmail.value = "";
+            document.register.userSex.value = "";
+            document.register.userBirth.value = "";
+            // document.getElementById("usName").innerHTML="";
+            // document.getElementById("ps1").innerHTML="";
+            // document.getElementById("ps2").innerHTML="";
+        }
+    </script>
+    <!-- CSS -->
+    <!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">-->
+    <link rel="stylesheet" href="/static/loginassets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/loginassets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/loginassets/css/form-elements.css">
+    <link rel="stylesheet" href="/static/loginassets/css/style.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicon and touch icons -->
+    <!--<link rel="shortcut icon" href="loginassets/ico/favicon.png">-->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="/static/loginassets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="/static/loginassets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/loginassets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/loginassets/ico/apple-touch-icon-57-precomposed.png">
+    <style type="text/css">
+        a:hover {
+            text-decoration: underline; /*指鼠标在链接*/
+        }
+    </style>
+</head>
+
+<body>
+<!-- Top content -->
+<div class="top-content">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1><strong>比价网</strong> 用户注册</h1>
+                    <div class="description">
+                        <p>
+                            在此注册您的个人账号：
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>比价网账户系统</h3>
+                            <p>输入您的个人信息</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-key"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <form role="form" action="/user/register" method="post"
+                              class="login-form" name="register">
+                            <div class="form-group">
+                                <label for="form_stype">您的身份为：</label>
+                                <select class="form-control" id="form_stype" name="registerType">
+                                    <option value="000001">普通用户</option>
+                                    <option value="000000">管理员</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="form-username">手机号</label>
+                                <input type="text" name="userPhone" placeholder="手机号"
+                                       class="form-username form-control" id="form-username"
+                                       onchange="chang1(this)">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="userNickname">昵称</label>
+                                <input type="text" name="userNickname" placeholder="昵称"
+                                       class="form-username form-control" id="userNickname">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="userEmail">邮箱</label>
+                                <input type="email" class="form-username form-control"
+                                       id="userEmail" placeholder="邮箱"
+                                       name="userEmail">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="userSex">性别</label>
+                                <select class="form-control form-username" id="userSex" name="userSex">
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                    <option value="保密">保密</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="userBirth">出生日期</label>
+                                <input type="date" class="form-control form-username" id="userBirth" name="userBirth">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="password">输入密码</label>
+                                <input type="password" name="userPassword" placeholder="输入密码"
+                                       class="form-password form-control" id="password"
+                                       onchange="chang2(this)">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="userPassword_confirm">确认密码</label>
+                                <input type="password" name="userPassword_confirm" placeholder="确认密码"
+                                       class="form-password form-control" id="userPassword_confirm"
+                                       onchange="chang3(this)">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <button type="submit" onclick='return sub()'
+                                        class="btn form-control">确认注册
+                                </button>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <button type="reset" class="btn form-control" onclick="res()">重置信息</button>
+                            </div>
+                            <div class="form-group" th:text="${errorInfo}" th:if="${not #strings.isEmpty(errorInfo)}">
+                                <h1 th:text="${errorInfo}"><font color="red" size="3"></font></h1>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--<div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>-->
+<!-- Javascript -->
+<script src="/static/loginassets/js/jquery-1.11.1.min.js"></script>
+<script src="/static/loginassets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/loginassets/js/jquery.backstretch.min.js"></script>
+<script src="/static/loginassets/js/scripts.js"></script>
+
+<!--[if lt IE 10]>
+<script src="../static/loginassets/js/placeholder.js"></script>
+<![endif]-->
+<!--${entity.userId}-->
+</body>
+</html>

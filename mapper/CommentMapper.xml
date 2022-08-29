@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.market.dao.CommentDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.market.entity.CommentEntity">
+        <id column="comment_id" property="commentId" />
+        <result column="comment_user_id" property="commentUserId" />
+        <result column="comment_spu_id" property="commentSpuId" />
+        <result column="comment_buy_source" property="commentBuySource" />
+        <result column="comment_content" property="commentContent" />
+        <result column="comment_goods_score" property="commentGoodsScore" />
+        <result column="comment_state" property="commentState" />
+        <result column="comment_created" property="commentCreated" />
+        <result column="comment_updated" property="commentUpdated" />
+    </resultMap>
+
+</mapper>

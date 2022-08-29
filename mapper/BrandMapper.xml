@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.market.dao.BrandDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.market.entity.BrandEntity">
+        <id column="gb_id" property="gbId" />
+        <result column="gb_name" property="gbName" />
+        <result column="gb_gc_id" property="gbGcId" />
+        <result column="gb_state" property="gbState" />
+        <result column="gb_created" property="gbCreated" />
+        <result column="gb_updated" property="gbUpdated" />
+    </resultMap>
+
+</mapper>

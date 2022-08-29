@@ -1,0 +1,1486 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta charset="UTF-8">
+
+    <title>开启你的比价品质生活</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/static/assets/images/favicon.png"/>
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/font-awesome.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/pe-icon-7-stroke.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/owl.carousel.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/chosen.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/jquery.bxslider.css">
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,700i" rel="stylesheet"> -->
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700" rel="stylesheet"> -->
+
+</head>
+
+<body class="index-opt-3">
+
+
+<div class="wrapper">
+
+    <form id="block-search-mobile" method="get" class="block-search-mobile">
+        <div class="form-content">
+            <div class="control">
+                <a href="#" class="close-block-serach"><span class="icon fa fa-times"></span></a>
+                <input type="text" name="search" placeholder="Search" class="input-subscribe">
+                <button type="submit" class="btn search">
+                    <span><i class="fa fa-search" aria-hidden="true"></i></span>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- HEADER -->
+
+    <header class="site-header header-opt-1">
+
+
+        <!-- header-top -->
+
+        <div class="header-top">
+
+            <div class="container">
+
+
+                <!-- hotline -->
+
+                <ul class="nav-top-left">
+
+                    <li><a href="">欢迎光临 Panity - 比出更好生活</a></li>
+
+                </ul><!-- hotline -->
+
+
+                <!-- heder links -->
+
+                <ul class="nav-top-right tyrion-nav">
+
+                    <!--<li><a href="">Newsletter</a></li>-->
+
+
+                    <li class="menu-item-has-children">
+
+                        <a href="#" class="dropdown-toggle">
+
+                            <span>人民币 (￥)</span><i class="fa fa-angle-down" aria-hidden="true"></i>
+
+                        </a>
+
+                        <ul class="submenu parent-megamenu">
+
+                            <li class="switcher-option">
+
+                                <a href="" class="switcher-flag icon">Pound (GBP)</a>
+
+                            </li>
+
+                            <li class="switcher-option">
+
+                                <a href="" class="switcher-flag icon">Euro (EUR)</a>
+
+                            </li>
+
+                            <li class="switcher-option">
+
+                                <a href="" class="switcher-flag icon">Dollar (USD)</a>
+
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+
+                    <li th:if="${session.SESSION_USER}!=null">
+                        <a href="/user/userInfo">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span th:text="${session?.SESSION_USER?.userNickname}"> 注册 / 登录</span>
+                        </a>
+                    </li>
+                    <li th:if="${session.SESSION_USER}!=null"><a href="/user/logout"><i class="fa fa-user" aria-hidden="true"></i>退出</a></li>
+
+                    <li th:if="${session.SESSION_USER}==null"><a href="/user/login1"><i class="fa fa-user"
+                                                                                        aria-hidden="true"></i>注册 /
+                    登录</a></li>
+
+                </ul><!-- heder links -->
+
+
+            </div>
+
+        </div> <!-- header-top -->
+
+
+        <!-- header-content -->
+
+        <div class="header-content">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-2 nav-left">
+
+                        <!-- logo -->
+
+                        <strong class="logo">
+
+                            <a href="/query/index"><img src="/static/assets/images/banner/logo3.png" alt="logo"></a>
+
+                        </strong><!-- logo -->
+
+                    </div>
+
+                    <div class="col-md-8 nav-mind">
+
+
+                        <!-- block search -->
+
+                        <div class="block-search">
+                            <form action="/query/doSearchByKeywords" method="get">
+                                <div class="block-content">
+
+                                    <div class="categori-search">
+
+                                        <select data-placeholder="全站搜索" class="chosen-select categori-search-option"
+                                                name="scope">
+                                            <option value="1">全站搜索</option>
+                                            <option value="2">手机</option>
+                                            <option value="3">笔记本</option>
+                                            <!--<optgroup label="- 电子产品">-->
+                                            <!--<option>手机</option>-->
+                                            <!--<option>笔记本</option>-->
+                                            <!--</optgroup>-->
+                                            <!--<optgroup label="- Smartphone & Table">
+                                              <option>Batteries & Chargens</option>
+                                              <option>Headphone & Headsets</option>
+                                              <option>Mp3 Player & Acessories</option>
+                                            </optgroup>
+                                            <optgroup label="- Electronics">
+                                              <option>Batteries & Chargens</option>
+                                              <option>Headphone & Headsets</option>
+                                              <option>Mp3 Player & Acessories</option>
+                                            </optgroup>
+                                            <optgroup label="- Smartphone & Table">
+                                              <option>Batteries & Chargens</option>
+                                              <option>Headphone & Headsets</option>
+                                              <option>Mp3 Player & Acessories</option>
+                                            </optgroup>-->
+                                        </select>
+
+                                    </div>
+                                    <div class="form-search">
+                                        <div class="box-group">
+                                            <input type="text" class="form-control" name="keys"
+                                                   placeholder="请在这里输入搜索关键词">
+                                            <button class="btn btn-search" type="submit"><span>搜索</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div><!-- block search -->
+
+                    </div>
+
+                    <div class="col-md-2 nav-right">
+
+                        <!-- block mini cart -->
+
+                        <div class="block-minicart dropdown">
+
+
+                            <a class="minicart" href="#">
+
+                                    <span class="counter qty">
+
+                                        <span class="cart-icon"><i class="fa fa-shopping-bag"
+                                                                   aria-hidden="true"></i></span>
+
+                                        <span class="counter-number">0</span>
+
+                                    </span>
+
+                                <span class="counter-your-cart">
+
+                                        <span class="counter-label">购物车:</span>
+
+                                        <span class="counter-price">￥00.00</span>
+
+                                    </span>
+
+                            </a>
+
+                            <div class="parent-megamenu">
+                                <!--购物车-->
+                                <form>
+
+                                    <div class="minicart-content-wrapper">
+
+                                        <div class="subtitle">
+
+                                            You have <span>2</span> item(s) in your cart
+
+                                        </div>
+
+                                        <div class="minicart-items-wrapper">
+
+                                            <ol class="minicart-items">
+
+                                                <li class="product-inner">
+
+                                                    <div class="product-thumb style1">
+
+                                                        <div class="thumb-inner">
+
+                                                            <a href=""><img src="/static/assets/images/home1/c1.jpg"
+                                                                            alt="c1"></a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="product-innfo">
+
+                                                        <div class="product-name"><a href="">Xbox One S Halo Collection
+                                                            Bund</a></div>
+
+                                                        <a href="#" class="remove"><i class="fa fa-times"
+                                                                                      aria-hidden="true"></i></a>
+
+                                                        <span class="price price-dark">
+
+                                                                <ins>$229.00</ins>
+
+                                                            </span>
+
+                                                    </div>
+
+                                                </li>
+
+                                                <li class="product-inner">
+
+                                                    <div class="product-thumb style1">
+
+                                                        <div class="thumb-inner">
+
+                                                            <a href=""><img src="/static/assets/images/home1/c2.jpg"
+                                                                            alt="c2"></a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="product-innfo">
+
+                                                        <div class="product-name"><a href="">Acer's Aspire S7 is a thin
+                                                            and portable...</a></div>
+                                                        <a href="#" class="remove"><i class="fa fa-times"
+                                                                                      aria-hidden="true"></i></a>
+
+                                                        <span class="price">
+
+                                                                <ins>$229.00</ins>
+
+                                                                <del>$259.00</del>
+
+                                                            </span>
+
+                                                    </div>
+
+                                                </li>
+
+                                            </ol>
+
+                                        </div>
+
+                                        <div class="subtotal">
+
+                                            <span class="label">Total :</span>
+
+                                            <span class="price">$480.00</span>
+
+                                        </div>
+
+                                        <div class="actions">
+
+                                            <a class="btn btn-viewcart" href="">View cart</a>
+
+                                            <a class="btn btn-checkout" href="">Checkout</a>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div><!-- block mini cart -->
+
+                        <a href="" class="hidden-md search-hidden"><span class="pe-7s-search"></span></a>
+
+                        <a class="wishlist-minicart" href=""><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div><!-- header-content -->
+
+        <!-- header-menu-bar -->
+
+        <div class="header-menu-bar header-sticky">
+
+            <div class="header-menu-nav menu-style-2">
+
+                <div class="container">
+
+                    <div class="header-menu-nav-inner">
+
+                        <div id="box-vertical-megamenus" class="box-vertical-megamenus nav-toggle-cat">
+
+                            <h4 class="title active">
+
+                                    <span class="btn-open-mobile home-page">
+
+                                        <span></span>
+
+                                        <span></span>
+
+                                        <span></span>
+
+                                    </span>
+
+                                <span class="title-menu">所有商品</span>
+
+                            </h4>
+
+                            <div class="vertical-menu-content">
+                                <span class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></span>
+
+                                <ul class="vertical-menu-list">
+                                    <!--新品上架-->
+                                    <li><a th:href="@{/query/getNewList(page=1,size=10)}">新品上架</a></li>
+                                    <!--手机 -->
+                                    <li class="menu-item-has-children arrow item-megamenu">
+                                        <!--手机-->
+                                        <a href="#" class="dropdown-toggle">手机</a>
+
+                                        <span class="toggle-submenu hidden-md"></span>
+
+                                        <div class="submenu parent-megamenu megamenu">
+
+                                            <div class="row">
+
+                                                <div class="submenu-banner submenu-banner-menu-1">
+
+                                                    <div class="col-md-4">
+
+                                                        <div class="dropdown-menu-info">
+
+                                                            <h6 class="dropdown-menu-title">品质大牌</h6>
+
+                                                            <div class="dropdown-menu-content">
+
+                                                                <ul class="menu" th:each="phone : ${phoneList}">
+
+                                                                    <li class="menu-item"><a
+                                                                            th:href="@{'getSpuListByIds/'+${phone.gbId}+'/'+${phone.gbGcId}+'?page=1&size=10'}"
+                                                                            th:text="${phone.gbName}"></a></li>
+
+                                                                </ul>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </li>
+                                    <!--电脑-->
+                                    <li class="menu-item-has-children arrow item-megamenu">
+
+                                        <a href="#" class="dropdown-toggle">电脑</a>
+
+                                        <span class="toggle-submenu hidden-md"></span>
+
+                                        <div class="submenu parent-megamenu megamenu">
+
+                                            <div class="row">
+
+                                                <div class="submenu-banner submenu-banner-menu-1">
+
+                                                    <div class="col-md-4">
+
+                                                        <div class="dropdown-menu-info">
+
+                                                            <h6 class="dropdown-menu-title">品质大牌</h6>
+
+                                                            <div class="dropdown-menu-content">
+
+                                                                <ul class="menu" th:each="computer : ${computerList}">
+
+                                                                    <li class="menu-item"><a
+                                                                            th:href="@{'getSpuListByIds/'+${computer.gbId}+'/'+${computer.gbGcId}+'?page=1&size=10'}"
+                                                                            th:text="${computer.gbName}"></a></li>
+
+                                                                </ul>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="header-menu header-menu-resize">
+
+                            <ul class="header-nav tyrion-nav">
+                                <li class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></li>
+
+                                <li>
+                                    <a href="/query/index" class="dropdown-toggle">首页</a>
+                                    <span class="toggle-submenu hidden-md"></span>
+                                </li>
+
+                                <li class="menu-item-has-children arrow">
+
+                                    <a href="#" class="dropdown-toggle">购物</a>
+
+                                    <span class="toggle-submenu hidden-md"></span>
+
+                                    <ul class="submenu parent-megamenu">
+                                        <li class="menu-item">
+                                            <a href="/query/getSpuListByIds/0/1">手机频道</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="/query/getSpuListByIds/0/2">电脑卖场</a>
+                                        </li>
+                                        <!--<li class="menu-item">
+                                            <a href="list-product-right.html">List Product Right</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="grid-product-right.html">Grid Product Right</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="detail.html">Detail Product</a>
+                                        </li>-->
+                                    </ul>
+
+                                </li>
+
+                                <li class="menu-item-has-children arrow">
+
+                                    <a href="#" class="dropdown-toggle">只看最低价</a>
+
+                                    <span class="toggle-submenu hidden-md"></span>
+
+                                    <ul class="submenu parent-megamenu">
+                                        <li class="menu-item">
+                                            <a href="/query/getSpuListByIds/0/-1">手机卖场</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="/query/getSpuListByIds/0/-2">电脑生活</a>
+                                        </li>
+                                        <!--<li class="menu-item">
+                                            <a href="contact-us.html">Contact Us</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="login.html">Login</a>
+                                        </li>-->
+                                    </ul>
+
+                                </li>
+
+                                <li>
+
+                                    <a href="#" class="dropdown-toggle">联系我们</a>
+
+                                    <span class="toggle-submenu hidden-md"></span>
+
+                                </li>
+
+                                <li class="menu-item-has-children arrow">
+
+                                    <a href="#" class="dropdown-toggle">博客</a>
+
+                                    <span class="toggle-submenu hidden-md"></span>
+
+                                    <ul class="submenu parent-megamenu">
+                                        <li class="menu-item">
+                                            <a href="#">微信客服</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#">QQ咨询群</a>
+                                        </li>
+                                        <li class="menu-item">
+                                            <a href="#">官网留言</a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                        <span data-action="toggle-nav" class="menu-on-mobile hidden-md">
+
+                                <span class="btn-open-mobile home-page">
+
+                                    <span></span>
+
+                                    <span></span>
+
+                                    <span></span>
+
+                                </span>
+
+                                <span class="title-menu-mobile">Main menu</span> 
+
+                            </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header><!-- end HEADER -->
+
+
+    <!-- MAIN -->
+
+    <main class="site-main">
+
+        <div class="block-slide">
+
+            <div class="container">
+
+                <div class="main-slide slide-opt-3">
+
+                    <div class="owl-carousel nav-style5" data-nav="true" data-autoplay="false" data-dots="true"
+                         data-loop="true" data-margin="0"
+                         data-responsive='{"0":{"items":1},"600":{"items":1},"1000":{"items":1}}'>
+
+                        <div class="item-slide item-slide-1">
+
+                            <div class="container">
+
+                                <div class="slide-desc slide-desc-1">
+
+                                    <div class="p-primary">全新版本，超越以往</div>
+
+                                    <p>超大屏，超广角</p>
+
+                                    <a th:href="'/query/getSpuSourceDetail/'+${banner[0].gssSpuId}+'/'+${banner[0].gssId}"
+                                       class="btn-shop-now">马上抢购</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="item-slide item-slide-2 ">
+
+                            <div class="container">
+
+                                <div class="slide-desc slide-desc-2">
+
+                                    <div class="p-primary">清仓<br>优惠<span class="number">五折<span></span></span>
+                                    </div>
+
+                                    <p class="p-second">免费派送</p>
+
+                                    <p>下单即发货</p>
+
+                                    <a th:href="'/query/getSpuSourceDetail/'+${banner[1].gssSpuId}+'/'+${banner[1].gssId}"
+                                       class="btn-shop-now">马上抢购</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="item-slide item-slide-3">
+
+                            <div class="container">
+
+                                <div class="slide-desc slide-desc-3">
+
+                                    <div class="p-primary" style="color: #000;">概念式产品</div>
+
+                                    <p>尽享科技潮流</p>
+
+                                    <a th:href="'/query/getSpuSourceDetail/'+${banner[2].gssSpuId}+'/'+${banner[2].gssId}"
+                                       class="btn-shop-now">立刻购买</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="promotion-banner banner-slide style-4 hidden-sm hidden-xs">
+
+                    <a th:href="'/query/getSpuSourceDetail/'+${banner[3].gssSpuId}+'/'+${banner[3].gssId}"
+                       class="banner-img"><img th:src="${banner[3].gssImgUrl}" alt="banner1"></a>
+
+                </div>
+
+                <div class="promotion-banner banner-slide style-4 hidden-sm hidden-xs">
+
+                    <a th:href="'/query/getSpuSourceDetail/'+${banner[4].gssSpuId}+'/'+${banner[4].gssId}"
+                       class="banner-img"><img th:src="${banner[4].gssImgUrl}" alt="banner2"></a>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="block-top-categori">
+
+            <div class="container">
+
+                <div class="title-of-section">一周热卖</div>
+
+                <div class="owl-carousel nav-style2" data-nav="true" data-autoplay="false" data-dots="true"
+                     data-loop="true" data-margin="20"
+                     data-responsive='{"0":{"items":1},"360":{"items":2},"500":{"items":3},"992":{"items":5}}'>
+
+                    <div class="block-top-categori-item" th:each="recommend:${recommendList}">
+
+                        <a th:href="'/query/getSpuSourceDetail/'+${recommend.gssSpuId}+'/'+${recommend.gssId}">
+                            <img th:src="${recommend.gssImgUrl}" alt="c1">
+                        </a>
+
+                        <div class="block-top-categori-title"
+                             th:text="|${recommend.gssSpuBrand} ${recommend.gssSpuName}|">Pocket Drone
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="block-promotion-banner">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-7">
+
+                        <div class="promotion-banner style-5">
+
+                            <a href="" class="banner-img"><img src="/static/assets/images/home1/banner3.jpg"
+                                                               alt="banner3"></a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-5">
+
+                        <div class="promotion-banner style-5">
+
+                            <a href="" class="banner-img"><img src="/static/assets/images/home1/banner4.jpg"
+                                                               alt="banner4"></a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="block-feature-product">
+
+            <div class="container">
+
+                <div class="title-of-section">超值低价</div>
+
+                <div class="tab-product tab-product-fade-effect">
+
+                    <ul class="box-tabs nav-tab">
+                        <li class="active"><a data-animated="zoomInUp" data-toggle="tab" href="#tab-1">最近热卖</a></li>
+                        <li><a data-animated="" data-toggle="tab" href="#tab-2">手机卖场 </a></li>
+                        <li><a data-animated="fadeInLeft" data-toggle="tab" href="#tab-3">品质电脑 </a></li>
+                    </ul>
+
+                    <div class="tab-content">
+
+                        <div class="tab-container">
+                            <div id="tab-1" class="tab-panel active">
+                                <div class="owl-carousel nav-style2 border-background equal-container" data-nav="true"
+                                     data-autoplay="false" data-dots="false" data-loop="true" data-margin="0"
+                                     data-responsive='{"0":{"items":1},"480":{"items":2},"768":{"items":3},"992":
+                                     {"items":4},"1200":{"items":5}}'>
+
+                                    <div class="owl-one-row" th:each="phoneSpu : ${hotList}">
+                                        <div class="product-item style1">
+
+                                            <div class="product-inner equal-elem">
+
+                                                <div class="product-thumb">
+
+                                                    <div class="thumb-inner">
+
+                                                        <a th:href="@{'getSpuSourceDetail/'+${phoneSpu.s1.gssSpuId}+'/'+${phoneSpu.s1.gssId}}">
+                                                            <img th:src="${phoneSpu.s1.gssImgUrl}" alt="f1"/></a>
+
+                                                    </div>
+                                                    <span class="onnew">爆款上市</span>
+                                                    <a th:href="${phoneSpu.s1.gssDestUrl}" class="quick-view">链接直通车</a>
+                                                </div>
+
+                                                <div class="product-innfo">
+                                                    <div class="product-name"><a th:text="${phoneSpu.s1.gssSpuName}"
+                                                                                 th:href="@{'getSpuSourceDetail/'+${phoneSpu.s1.gssSpuId}+'/'+${phoneSpu.s1.gssId}}">loading...</a>
+                                                    </div>
+
+                                                    <span class="price price-dark">
+
+                                                            <ins th:text="'￥'+${phoneSpu.s1.gssFullPrice}">$229.00</ins>
+
+                                                        </span>
+
+                                                    <span class="star-rating">
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <span class="review"
+                                                                  th:text="${phoneSpu.s1.gssComment}+' Comment(s)'">5 Comment(s)</span>
+
+                                                        </span>
+
+                                                    <div class="group-btn-hover">
+
+                                                        <div class="inner">
+
+                                                            <a href="" class="compare"><i
+                                                                    class="flaticon-refresh-square-arrows"></i></a>
+
+                                                            <a href="" class="add-to-cart">加入购物车</a>
+
+                                                            <a href="" class="wishlist"><i class="fa fa-heart-o"
+                                                                                           aria-hidden="true"></i></a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="product-item style1">
+                                            <div class="product-inner equal-elem">
+
+                                                <div class="product-thumb">
+
+                                                    <div class="thumb-inner">
+
+                                                        <a th:href="@{'getSpuSourceDetail/'+${phoneSpu.s2.gssSpuId}+'/'+${phoneSpu.s2.gssId}}"><img
+                                                                th:src="${phoneSpu.s2.gssImgUrl}" alt="f1"></a>
+
+                                                    </div>
+
+                                                    <a th:href="${phoneSpu.s2.gssDestUrl}" class="quick-view">链接直通车</a>
+
+                                                </div>
+
+                                                <div class="product-innfo">
+                                                    <div class="product-name"><a th:text="${phoneSpu.s2.gssSpuName}"
+                                                                                 th:href="@{'getSpuSourceDetail/'+${phoneSpu.s2.gssSpuId}+'/'+${phoneSpu.s2.gssId}}">loading...</a>
+                                                    </div>
+
+                                                    <span class="price price-dark">
+
+                                                            <ins th:text="'￥'+${phoneSpu.s2.gssFullPrice}">$229.00</ins>
+
+                                                        </span>
+
+                                                    <span class="star-rating">
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <span class="review"
+                                                                  th:text="${phoneSpu.s2.gssComment}+' Comment(s)'">5 Comment(s)</span>
+
+                                                        </span>
+
+                                                    <div class="group-btn-hover">
+
+                                                        <div class="inner">
+
+                                                            <a href="" class="compare"><i
+                                                                    class="flaticon-refresh-square-arrows"></i></a>
+
+                                                            <a href="" class="add-to-cart">加入购物车</a>
+
+                                                            <a href="" class="wishlist"><i class="fa fa-heart-o"
+                                                                                           aria-hidden="true"></i></a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div id="tab-2" class="tab-panel">
+                                <div class="owl-carousel nav-style2 border-background equal-container" data-nav="true"
+                                     data-autoplay="false" data-dots="false" data-loop="true" data-margin="0"
+                                     data-responsive='{"0":{"items":1},"480":{"items":2},"768":{"items":3},"992":
+                                     {"items":4},"1200":{"items":5}}'>
+
+                                    <div class="owl-one-row" th:each="phoneSpu : ${phoneSpuList}">
+                                        <div class="product-item style1">
+
+                                            <div class="product-inner equal-elem">
+
+                                                <div class="product-thumb">
+
+                                                    <div class="thumb-inner">
+
+                                                        <a th:href="@{'getSpuSourceDetail/'+${phoneSpu.s1.gssSpuId}+'/'+${phoneSpu.s1.gssId}}"><img
+                                                                th:src="${phoneSpu.s1.gssImgUrl}" alt="f1"></a>
+
+                                                    </div>
+
+                                                    <a th:href="${phoneSpu.s1.gssDestUrl}" class="quick-view">链接直通车</a>
+
+                                                </div>
+
+                                                <div class="product-innfo">
+                                                    <div class="product-name"><a th:text="${phoneSpu.s1.gssSpuName}"
+                                                                                 th:href="@{'getSpuSourceDetail/'+${phoneSpu.s1.gssSpuId}+'/'+${phoneSpu.s1.gssId}}">loading...</a>
+                                                    </div>
+
+                                                    <span class="price price-dark">
+
+                                                            <ins th:text="'￥'+${phoneSpu.s1.gssFullPrice}">$229.00</ins>
+
+                                                        </span>
+
+                                                    <span class="star-rating">
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <span class="review"
+                                                                  th:text="${phoneSpu.s1.gssComment}+' Comment(s)'">5 Comment(s)</span>
+
+                                                        </span>
+
+                                                    <div class="group-btn-hover">
+
+                                                        <div class="inner">
+
+                                                            <a href="" class="compare"><i
+                                                                    class="flaticon-refresh-square-arrows"></i></a>
+
+                                                            <a href="" class="add-to-cart">加入购物车</a>
+
+                                                            <a href="" class="wishlist"><i class="fa fa-heart-o"
+                                                                                           aria-hidden="true"></i></a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="product-item style1">
+
+                                            <div class="product-inner equal-elem">
+
+                                                <div class="product-thumb">
+
+                                                    <div class="thumb-inner">
+
+                                                        <a th:href="@{'getSpuSourceDetail/'+${phoneSpu.s2.gssSpuId}+'/'+${phoneSpu.s2.gssId}}"><img
+                                                                th:src="${phoneSpu.s2.gssImgUrl}" alt="f1"></a>
+
+                                                    </div>
+
+                                                    <a th:href="${phoneSpu.s2.gssDestUrl}" class="quick-view">链接直通车</a>
+
+                                                </div>
+
+                                                <div class="product-innfo">
+                                                    <div class="product-name"><a th:text="${phoneSpu.s2.gssSpuName}"
+                                                                                 th:href="@{'getSpuSourceDetail/'+${phoneSpu.s2.gssSpuId}+'/'+${phoneSpu.s2.gssId}}">loading...</a>
+                                                    </div>
+
+                                                    <span class="price price-dark">
+
+                                                            <ins th:text="'￥'+${phoneSpu.s2.gssFullPrice}">$229.00</ins>
+
+                                                        </span>
+
+                                                    <span class="star-rating">
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <span class="review"
+                                                                  th:text="${phoneSpu.s2.gssComment}+' Comment(s)'">5 Comment(s)</span>
+
+                                                        </span>
+
+                                                    <div class="group-btn-hover">
+
+                                                        <div class="inner">
+
+                                                            <a href="" class="compare"><i
+                                                                    class="flaticon-refresh-square-arrows"></i></a>
+
+                                                            <a href="" class="add-to-cart">加入购物车</a>
+
+                                                            <a href="" class="wishlist"><i class="fa fa-heart-o"
+                                                                                           aria-hidden="true"></i></a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div id="tab-3" class="tab-panel">
+                                <div class="owl-carousel nav-style2 border-background equal-container" data-nav="true"
+                                     data-autoplay="false" data-dots="false" data-loop="true" data-margin="0"
+                                     data-responsive='{"0":{"items":1},"480":{"items":2},"768":{"items":3},"992":
+                                     {"items":4},"1200":{"items":5}}'>
+
+                                    <div class="owl-one-row" th:each="phoneSpu : ${computerSpuList}">
+                                        <div class="product-item style1">
+
+                                            <div class="product-inner equal-elem">
+
+                                                <div class="product-thumb">
+
+                                                    <div class="thumb-inner">
+
+                                                        <a th:href="@{'getSpuSourceDetail/'+${phoneSpu.s1.gssSpuId}+'/'+${phoneSpu.s1.gssId}}"><img
+                                                                th:src="${phoneSpu.s1.gssImgUrl}" alt="f1"></a>
+
+                                                    </div>
+
+                                                    <a th:href="${phoneSpu.s1.gssDestUrl}" class="quick-view">链接直通车</a>
+
+                                                </div>
+
+                                                <div class="product-innfo">
+                                                    <div class="product-name"><a th:text="${phoneSpu.s1.gssSpuName}"
+                                                                                 th:href="@{'getSpuSourceDetail/'+${phoneSpu.s1.gssSpuId}+'/'+${phoneSpu.s1.gssId}}">loading...</a>
+                                                    </div>
+
+                                                    <span class="price price-dark">
+
+                                                            <ins th:text="'￥'+${phoneSpu.s1.gssFullPrice}">$229.00</ins>
+
+                                                        </span>
+
+                                                    <span class="star-rating">
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <span class="review"
+                                                                  th:text="${phoneSpu.s1.gssComment}+' Comment(s)'">5 Comment(s)</span>
+
+                                                        </span>
+
+                                                    <div class="group-btn-hover">
+
+                                                        <div class="inner">
+
+                                                            <a href="" class="compare"><i
+                                                                    class="flaticon-refresh-square-arrows"></i></a>
+
+                                                            <a href="" class="add-to-cart">加入购物车</a>
+
+                                                            <a href="" class="wishlist"><i class="fa fa-heart-o"
+                                                                                           aria-hidden="true"></i></a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="product-item style1">
+
+                                            <div class="product-inner equal-elem">
+
+                                                <div class="product-thumb">
+
+                                                    <div class="thumb-inner">
+
+                                                        <a th:href="@{'getSpuSourceDetail/'+${phoneSpu.s2.gssSpuId}+'/'+${phoneSpu.s2.gssId}}"><img
+                                                                th:src="${phoneSpu.s2.gssImgUrl}" alt="f1"></a>
+
+                                                    </div>
+
+                                                    <a th:href="${phoneSpu.s2.gssDestUrl}" class="quick-view">链接直通车</a>
+
+                                                </div>
+
+                                                <div class="product-innfo">
+                                                    <div class="product-name"><a th:text="${phoneSpu.s2.gssSpuName}"
+                                                                                 th:href="@{'getSpuSourceDetail/'+${phoneSpu.s2.gssSpuId}+'/'+${phoneSpu.s2.gssId}}">loading...</a>
+                                                    </div>
+
+                                                    <span class="price price-dark">
+
+                                                            <ins th:text="'￥'+${phoneSpu.s2.gssFullPrice}">$229.00</ins>
+
+                                                        </span>
+
+                                                    <span class="star-rating">
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <i class="fa fa-star" aria-hidden="true"></i>
+
+                                                            <span class="review"
+                                                                  th:text="${phoneSpu.s2.gssComment}+' Comment(s)'">5 Comment(s)</span>
+
+                                                        </span>
+
+                                                    <div class="group-btn-hover">
+
+                                                        <div class="inner">
+
+                                                            <a href="" class="compare"><i
+                                                                    class="flaticon-refresh-square-arrows"></i></a>
+
+                                                            <a href="" class="add-to-cart">加入购物车</a>
+
+                                                            <a href="" class="wishlist"><i class="fa fa-heart-o"
+                                                                                           aria-hidden="true"></i></a>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="block-section-brand">
+            <div class="container">
+                <div class="section-brand style1">
+                    <div class="owl-carousel nav-style3" data-nav="true" data-autoplay="false" data-dots="false"
+                         data-loop="true" data-margin="2"
+                         data-responsive='{"0":{"items":1},"320":{"items":2},"480":{"items":3},"768":{"items":4},"992":{"items":5},"1200":{"items":5}}'>
+                        <a href="" class="item-brand"><img src="/static/assets/images/logo.png" alt="brand1"></a>
+                        <a href="" class="item-brand"><img src="/static/assets/images/logo.png" alt="brand1"></a>
+                        <a href="" class="item-brand"><img src="/static/assets/images/logo.png" alt="brand1"></a>
+                        <a href="" class="item-brand"><img src="/static/assets/images/logo.png" alt="brand1"></a>
+                        <a href="" class="item-brand"><img src="/static/assets/images/logo.png" alt="brand1"></a>
+                        <a href="" class="item-brand"><img src="/static/assets/images/logo.png" alt="brand1"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main><!-- end MAIN -->
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer footer-opt-2">
+
+
+        <div class="footer-top full-width">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="newsletter-title">
+
+                            <h3 class="h3-newsletter">在本网站注册</h3>
+
+                            <span class="span-newsletter">最高50元优惠券等你拿</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="newsletter-form">
+
+                            <form id="newsletter-validate-detail" class="form subscribe">
+
+                                <div class="control">
+
+                                    <input type="phone" placeholder="输入你的手机号码" id="newsletter"
+                                           name="phone" class="input-subscribe">
+
+                                    <button type="submit" title="Subscribe" class="btn subscribe">
+
+                                        <span>快速注册</span>
+
+                                    </button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-column equal-container">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-6 equal-elem">
+
+                        <h3 class="title-of-section">关于我们</h3>
+
+                        <div class="contacts">
+
+                            <p class="contacts-info">专业的垂直领域网上购物商城，销售科技前沿商品，囊括手机、电脑等2大品类。
+                                秉承客户为先的理念，所有产品都是由本站进行推荐，本站不提供购买和下单的功能，
+                                如需购买请自行登录相应的购物平台。</p>
+
+                            <span class="contacts-info info-address ">湖北省武汉市</span>
+
+                            <span class="contacts-info info-phone">(+86) 159 9999 9999</span>
+
+                            <span class="contacts-info info-support">hwang@gmail.com</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-2 col-sm-6 equal-elem">
+
+                        <div class="links">
+
+                            <h3 class="title-of-section">关于账户</h3>
+
+                            <ul>
+
+                                <li><a href="/user/login1">登录请点击这里</a></li>
+
+                                <li><a href="">查看购物车</a></li>
+
+                                <li><a href="">我的收藏</a></li>
+
+                                <li><a href="">联系我们</a></li>
+
+                                <li><a href="">对订单有疑问</a></li>
+
+                                <li><a href="">需要帮助</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-2 col-sm-6 equal-elem">
+
+                        <div class="links">
+
+                            <h3 class="title-of-section">售后服务</h3>
+
+                            <ul>
+
+                                <li><a href="">售后政策</a></li>
+
+                                <li><a href="">价格保护</a></li>
+
+                                <li><a href="">退款说明</a></li>
+
+                                <li><a href="">返修/退换货</a></li>
+
+                                <li><a href="">取消订单</a></li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-2 col-sm-6 equal-elem">
+
+                        <div class="links">
+
+                            <h3 class="title-of-section">购物指南</h3>
+
+                            <ul>
+
+                                <li><a href="">购物流程</a></li>
+
+                                <li><a href="">会员介绍</a></li>
+
+                                <li><a href="">生活旅行</a></li>
+
+                                <li><a href="">常见问题</a></li>
+
+                                <li><a href="">大家电</a></li>
+
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-2 col-sm-6 equal-elem">
+
+                        <div class="links">
+
+                            <h3 class="title-of-section">配送方式</h3>
+
+                            <ul>
+
+                                <li><a href="">配送方式</a></li>
+
+                                <li><a href="">上门自提</a></li>
+
+                                <li><a href="">211限时达</a></li>
+
+                                <li><a href="">配送服务查询</a></li>
+
+                                <li><a href="">配送费收取标准</a></li>
+                                <li><a href="">海外配送</a></li>
+                                <li><a href="">货到付款</a></li>
+                                <li><a href="">在线支付</a></li>
+
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="copyright full-width">
+
+            <div class="container">
+
+                <div class="copyright-right">
+
+                    © Copyright 2019<span> parity </span>. All Rights <a href="http://www.eliashuang.cn/">Reserved</a>.
+
+                </div>
+
+                <div class="pay-men">
+
+                    <a href=""><img src="/static/assets/images/general/pay1.jpg" alt="pay1"></a>
+
+                    <a href=""><img src="/static/assets/images/general/pay2.jpg" alt="pay2"></a>
+
+                    <a href=""><img src="/static/assets/images/general/pay3.jpg" alt="pay3"></a>
+
+                    <a href=""><img src="/static/assets/images/general/pay4.jpg" alt="pay4"></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer><!-- end FOOTER -->
+
+
+</div>
+
+<a href="#" id="scrollup" title="Scroll to Top">Scroll</a>
+
+<!-- jQuery -->
+
+<script type="text/javascript" src="/static/assets/js/jquery-2.1.4.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/owl.carousel.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/wow.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/jquery.actual.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/chosen.jquery.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/jquery.bxslider.min.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/jquery.sticky.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/jquery.elevateZoom.min.js"></script>
+
+<script src="/static/assets/js/fancybox/source/jquery.fancybox.pack.js"></script>
+<script src="/static/assets/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+<script src="/static/assets/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/function.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/Modernizr.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/jquery.plugin.js"></script>
+
+<script type="text/javascript" src="/static/assets/js/jquery.countdown.js"></script>
+
+</body>
+
+</html>
